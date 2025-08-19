@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SignalR Chat</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-color: #1e1e1e;
+            --accent: #4cafef;
+            --text-color: #eaeaea;
+            --subtext-color: #aaa;
+            --border-color: #2a2a2a;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            max-width: 700px;
+            width: 100%;
+            background: var(--card-color);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--accent);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        #messagesList {
+            height: 320px;
+            overflow-y: auto;
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 12px;
+            margin: 15px 0;
+            background: #181818;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: #2a2a2a;
+            color: var(--text-color);
+            font-size: 14px;
+            outline: none;
+        }
+
+            input[type="text"]:focus {
+                border-color: var(--accent);
+            }
+
+        button {
+            padding: 12px 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+            button:hover {
+                opacity: 0.9;
+            }
+
+            button:disabled {
+                background: #555;
+                cursor: not-allowed;
+            }
+
+        .meta {
+            color: var(--subtext-color);
+            font-size: 13px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Chat Application</h2>
+
+        <h5>Powered By : Mohammed Nasser</h5>
+
+        <label>
+            Your Name:
+            <input id="userInput" type="text" placeholder="Write your Name" value="">
+        </label>
+
+        <div id="messagesList" aria-live="polite"></div>
+
+        <form id="sendForm" autocomplete="off">
+            <input id="messageInput" type="text" placeholder="Write your Message..." />
+            <button id="sendButton" type="submit" disabled>Send Message </button>
+        </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@latest/dist/browser/signalr.min.js"></script>
+    <script src="chat.js"></script>
+
+
+</body>
+
+</html>
